@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Contact — Legacy Creators</title>
+<meta name="description" content="Contact Legacy Creators for a free verification to see if funds are owed to you." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-header">
+  <div class="brand">
+    <img src="LC-logo.png" alt="Legacy Creators" class="site-logo-img">
+    <div class="brand-text">
+      <h1>Legacy Creators</h1>
+      <div class="tagline">Funds Recovery Audit Specialists</div>
+    </div>
+  </div>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="our-company.html">Our Company</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="questions.html">Questions</a>
+    <a class="active" href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="section-card form-card">
+  <h2 class="headline">Request a free verification</h2>
+  <p class="lead-copy">
+    Complete this short form and our team will confirm whether funds are currently recorded under your name.
+    There is no cost for this review.
+  </p>
+
+  <!-- STEP: replace YOUR-EMAIL-HERE with your real forwarding email using formsubmit.co -->
+  <form id="leadForm" action="https://formsubmit.co/YOUR-EMAIL-HERE" method="POST" onsubmit="return onSubmitForm(event)">
+    <input type="hidden" name="_subject" value="New inquiry from legacycreators.us">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">Full name</label>
+    <input id="name" name="name" type="text" required placeholder="Your full legal name">
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+    <label for="phone">Phone</label>
+    <input id="phone" name="phone" type="text" required placeholder="(800) 555-1212">
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="If you were contacted by us, please mention how (phone, letter, etc.). You can also list any previous addresses."></textarea>
+
+    <button class="btn" type="submit" style="width:100%;margin-top:14px">Submit My Info</button>
+  </form>
+
+  <div class="subtext" style="margin-top:16px">
+    Prefer to talk to someone? Call (769) 300-1146. We’re available Mon–Fri, 9am–6pm Central.
+  </div>
+
+  <div class="disclaimer" style="margin-top:16px">
+    By submitting, you agree that Legacy Creators may contact you regarding funds that may be owed to you. 
+    We do not sell your information.
+  </div>
+</section>
+
+<section class="section-card">
+  <h3>Why contact us?</h3>
+  <ul class="light" style="margin-top:8px;font-size:15px;line-height:1.5;">
+    <li>We’ve already identified a possible match in your name.</li>
+    <li>There is no charge for verification.</li>
+    <li>Funds can stop being available — waiting can mean losing the opportunity.</li>
+  </ul>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div>© Legacy Creators — legacycreators.us</div>
+  <div>lenita@legacycreators.us • (769) 300-1146</div>
+  <div class="disclaimer">
+    Legacy Creators is a private auditing service that identifies government-held funds owed to private citizens and businesses and assists in reuniting those funds with their rightful owners. Though we partner with attorneys, we are not a law firm and do not provide legal advice.
+  </div>
+</footer>
+
+</div>
+
+<script>
+function onSubmitForm(e){
+  var name = document.getElementById('name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  if(!name || !email || !phone){
+    alert('Please include your name, email, and phone so we can confirm identity.');
+    return false;
+  }
+  return true;
+}
+</script>
+
+</body>
+</html>
