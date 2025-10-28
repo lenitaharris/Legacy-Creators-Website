@@ -38,7 +38,7 @@ body {
   padding:20px;
 }
 
-/* ---------- LEGACY CREATORS HEADER (REV2) ---------- */
+/* ---------- LEGACY CREATORS HEADER (REV3) ---------- */
 header.site-header {
   display:flex;
   align-items:flex-start;
@@ -106,7 +106,7 @@ header.site-header {
   text-shadow:0 0 12px rgba(212,175,55,0.5);
   font-family:"Ovo", serif;
   text-transform:uppercase;
-  line-height:1.1;
+  line-height:2.1;
 }
 
 .brand-line-main {
@@ -115,30 +115,11 @@ header.site-header {
   column-gap:10px;
   row-gap:0;
   align-items:flex-end;
-  font-size:22px;          /* BIG on purpose */
+  font-size:34px;          /* BIG on purpose */
   font-weight:600;
   letter-spacing:0.08em;
 }
 
-/* underline + tagline row under the name */
-.brand-accent-row {
-  display:flex;
-  flex-wrap:wrap;
-  align-items:flex-start;
-  gap:12px;
-  margin-top:10px;
-  line-height:1.2;
-}
-
-/* short gold line */
-.brand-underline {
-  display:inline-block;
-  align-self:center;
-  width:44px;
-  height:2px;
-  background:var(--gold);
-  box-shadow:0 0 10px rgba(212,175,55,0.6);
-}
 
 /* tagline text */
 .brand-tag-small {
