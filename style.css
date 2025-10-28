@@ -38,7 +38,7 @@ body {
   padding:20px;
 }
 
-/* ---------- LEGACY CREATORS HEADER (REV3) ---------- */
+/* ---------- LEGACY CREATORS HEADER (REV5) ---------- */
 header.site-header {
   display:flex;
   align-items:flex-start;
@@ -153,17 +153,29 @@ header.site-header {
   line-height: 1.1;
 }
 
-/* move tagline slightly closer to name */
+/* tighten tagline spacing and raise it up */
 .brand-accent-row {
-  margin-top: 4px; /* reduced from 10px */
+  margin-top: 2px; /* was 4px or 10px */
 }
 
-/* ensure tagline stays visually balanced */
 .brand-tag-small {
   font-size: 12px;
   letter-spacing: 0.13em;
   opacity: 0.95;
-  margin-top: 1px;
+  margin-top: 0;
+  position: relative;
+  top: -2px; /* lifts tagline slightly closer to the name */
+}
+
+/* align nav links with the company name height */
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;  /* vertically center links with the header text */
+  gap: 26px;
+  font-size: 16px;      /* increased from 15px */
+  font-weight: 500;
+  margin-top: 8px;      /* small downward shift for alignment */
 }
 
 /* tagline text */
@@ -181,13 +193,17 @@ header.site-header {
 
 /* NAV LINKS ON RIGHT */
 .nav-links {
-  display:flex;
-  flex-wrap:wrap;
-  gap:22px;
-  font-size:15px;
-  font-weight:500;
-  margin-top:6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;     /* centers vertically within header */
+  gap: 26px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 4px;         /* fine-tuned for perfect center alignment */
+  position: relative;
+  top: 2px;                /* nudges the whole nav group downward slightly */
 }
+
 
 .nav-links a {
   color:var(--text-light);
