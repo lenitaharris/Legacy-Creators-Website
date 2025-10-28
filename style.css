@@ -1,14 +1,14 @@
 :root {
   /* Brand colors */
-  --navy:#0B2540;          /* deep midnight navy (header/footer, headlines, text on light bg) */
+  --navy:#071a2e;          /* rich midnight navy for header/footer, headlines */
   --gold:#D4AF37;          /* logo gold / accent / buttons */
   --text-dark:#0B2540;     /* main body text on light background */
   --text-light:#ffffff;    /* text on navy */
   --bg-page:#ffffff;       /* page background */
-  --bg-section:#ffffff;    /* card/section background (stays white for trust/clarity) */
+  --bg-section:#ffffff;    /* card/section background */
   --border:#E5EAF0;        /* light border for cards/boxes */
   --muted:#6B7280;         /* supporting copy */
-  --radius:14px;
+  --radius:18px;
   --maxw:1200px;
   --shadow:0 16px 44px rgba(11,37,64,0.07); /* soft navy shadow */
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
@@ -38,91 +38,161 @@ body {
   padding:20px;
 }
 
-/* HEADER / NAV */
+/* ---------- LEGACY CREATORS HEADER ---------- */
 header.site-header {
   display:flex;
-  flex-wrap:wrap;
   align-items:flex-start;
   justify-content:space-between;
-  padding:16px 18px 20px;
+  flex-wrap:wrap;
   background:var(--navy);
   color:var(--text-light);
   border-radius:var(--radius);
-  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+  padding:22px 28px 24px;
+  box-shadow:
+      0 28px 60px rgba(0,0,0,0.65),
+      0 0 40px rgba(212,175,55,0.15);
+  border:1px solid rgba(212,175,55,0.25);
 }
 
-.brand {
+/* left side brand cluster: emblem + stacked text */
+.brand-block {
   display:flex;
   align-items:flex-start;
-  gap:12px;
+  gap:18px;
+  line-height:1.1;
 }
 
-.site-logo-img {
-  height:48px;
-  width:auto;
-  border-radius:10px;
-  background:#000000;
-  padding:6px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.45);
+/* emblem provided by you */
+.brand-emblem-wrap {
+  height:68px;
+  width:68px;
   flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  filter:
+    drop-shadow(0 0 14px rgba(212,175,55,0.45))
+    drop-shadow(0 18px 36px rgba(0,0,0,0.7));
+}
+
+.brand-emblem {
+  height:68px;
+  width:68px;
   object-fit:contain;
+  /* blend white bg of the PNG into navy so it looks printed on the bar */
+  mix-blend-mode:screen;
+  box-shadow:0 0 24px rgba(212,175,55,0.35);
+  display:block;
 }
 
-.brand-text h1 {
-  font-size:20px;
-  margin:0;
-  color:var(--text-light);
-  font-weight:600;
+/* right-side text cluster */
+.brand-textgroup {
+  display:flex;
+  flex-direction:column;
   line-height:1.2;
-  letter-spacing:-0.03em;
 }
 
-.brand-text .tagline {
-  font-size:13px;
+/* LEGACY / CREATORS block */
+.brand-name {
+  font-family:"Ovo", serif;
   color:var(--gold);
-  margin-top:4px;
-  font-weight:500;
-  line-height:1.3;
-  letter-spacing:0.02em;
+  text-transform:uppercase;
+  text-shadow:0 0 10px rgba(212,175,55,0.45);
+  line-height:1.2;
+  font-size:18px;
+  display:flex;
+  flex-direction:column;
 }
 
+.brand-line1 {
+  display:block;
+  letter-spacing:0.08em;
+}
+
+.brand-line2 {
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+  gap:10px;
+  line-height:1.2;
+  position:relative;
+}
+
+.brand-underline {
+  display:inline-block;
+  height:2px;
+  background:var(--gold);
+  box-shadow:0 0 10px rgba(212,175,55,0.6);
+  align-self:center;
+  width:42px;
+  margin-top:0.6em;
+}
+
+.brand-wordline {
+  display:inline-block;
+  font-family:"Ovo", serif;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.18em;
+  color:var(--gold);
+  text-shadow:0 0 8px rgba(212,175,55,0.45);
+  font-size:18px;
+  line-height:1.2;
+}
+
+/* tagline under Legacy Creators */
+.brand-tagline {
+  margin-top:10px;
+  color:var(--gold);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  text-shadow:0 0 8px rgba(212,175,55,0.4);
+  opacity:.9;
+  line-height:1.3;
+}
+
+/* NAV LINKS ON RIGHT */
 .nav-links {
   display:flex;
   flex-wrap:wrap;
-  gap:18px;
-  font-size:14px;
-  line-height:1.3;
+  gap:22px;
+  font-size:15px;
   font-weight:500;
-  margin-top:8px;
+  margin-top:6px;
 }
 
 .nav-links a {
   color:var(--text-light);
   text-decoration:none;
-  position:relative;
   transition:color .18s ease, text-shadow .18s ease;
 }
 
 .nav-links a.active {
   color:var(--gold);
   font-weight:600;
-  text-shadow:0 0 8px rgba(212,175,55,0.4);
+  text-shadow:0 0 10px rgba(212,175,55,0.5);
 }
 
 .nav-links a:hover {
   color:var(--gold);
-  text-shadow:0 0 8px rgba(212,175,55,0.4);
+  text-shadow:0 0 10px rgba(212,175,55,0.6);
 }
 
+/* mobile header layout */
 @media (max-width:700px){
   header.site-header {
-    gap:16px;
+    flex-direction:column;
+    align-items:flex-start;
   }
-  .nav-links{
-    flex-basis:100%;
-    margin-top:4px;
-    padding-top:8px;
+  .nav-links {
     border-top:1px solid rgba(255,255,255,0.1);
+    padding-top:10px;
+    margin-top:14px;
+    gap:16px;
   }
 }
 
@@ -179,7 +249,9 @@ h3 {
   letter-spacing:-0.02em;
 }
 
-p, li, dd {
+p,
+li,
+dd {
   color:var(--text-dark);
   font-size:15px;
   line-height:1.5;
@@ -198,6 +270,7 @@ p, li, dd {
   flex-wrap:wrap;
   margin-top:12px;
 }
+
 .pill {
   background:#fff;
   padding:8px 12px;
@@ -415,7 +488,7 @@ a.btn {
   appearance:none;
   border:0;
   background:var(--gold);
-  color:#000; /* dark text on gold for strong contrast */
+  color:#000;
   padding:12px 16px;
   border-radius:10px;
   text-decoration:none;
@@ -431,7 +504,9 @@ a.btn {
 
 button.btn:hover,
 a.btn:hover {
-  box-shadow:0 0 20px rgba(212,175,55,0.6), 0 12px 32px rgba(11,37,64,0.4);
+  box-shadow:
+    0 0 20px rgba(212,175,55,0.6),
+    0 12px 32px rgba(11,37,64,0.4);
   filter:brightness(1.03);
 }
 
@@ -482,8 +557,7 @@ footer.site-footer a:hover {
   text-shadow:0 0 10px rgba(212,175,55,0.6);
 }
 
-/* Small-print disclaimer in footer is reused from .disclaimer,
-   we just override color for dark footer */
+/* override disclaimer color in footer */
 footer .disclaimer {
   color:rgba(255,255,255,0.7);
   margin-top:4px;
