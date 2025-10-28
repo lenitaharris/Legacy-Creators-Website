@@ -1,6 +1,6 @@
 :root {
   /* Brand colors */
-  --navy:#071a2e;          /* rich midnight navy for header/footer, headlines */
+  --navy:#0B2540;          /* rich midnight navy for header/footer, headlines */
   --gold:#D4AF37;          /* logo gold / accent / buttons */
   --text-dark:#0B2540;     /* main body text on light background */
   --text-light:#ffffff;    /* text on navy */
@@ -38,7 +38,7 @@ body {
   padding:20px;
 }
 
-/* ---------- LEGACY CREATORS HEADER ---------- */
+/* ---------- LEGACY CREATORS HEADER (REV2) ---------- */
 header.site-header {
   display:flex;
   align-items:flex-start;
@@ -47,103 +47,101 @@ header.site-header {
   background:var(--navy);
   color:var(--text-light);
   border-radius:var(--radius);
-  padding:22px 28px 24px;
+  padding:24px 28px 24px;
   box-shadow:
-      0 28px 60px rgba(0,0,0,0.65),
-      0 0 40px rgba(212,175,55,0.15);
+    0 28px 60px rgba(0,0,0,0.65),
+    0 0 40px rgba(212,175,55,0.15);
   border:1px solid rgba(212,175,55,0.25);
 }
 
-/* left side brand cluster: emblem + stacked text */
+/* cluster: emblem + text */
 .brand-block {
   display:flex;
   align-items:flex-start;
-  gap:18px;
+  gap:20px;
   line-height:1.1;
 }
 
-/* emblem provided by you */
+/* emblem container with intentional frame */
 .brand-emblem-wrap {
-  height:68px;
-  width:68px;
   flex-shrink:0;
+}
+
+.brand-emblem-frame {
+  background:var(--navy);                 /* force match header color */
+  border:1px solid rgba(212,175,55,0.4);  /* gold border */
+  border-radius:12px;
+  padding:8px;
+  box-shadow:
+    0 0 14px rgba(212,175,55,0.45),
+    0 18px 36px rgba(0,0,0,0.7),
+    0 0 32px rgba(212,175,55,0.25);
   display:flex;
   align-items:center;
   justify-content:center;
-  background:transparent;
-  filter:
-    drop-shadow(0 0 14px rgba(212,175,55,0.45))
-    drop-shadow(0 18px 36px rgba(0,0,0,0.7));
+  width:70px;
+  height:70px;
 }
 
 .brand-emblem {
-  height:68px;
-  width:68px;
+  max-width:100%;
+  max-height:100%;
   object-fit:contain;
-  /* blend white bg of the PNG into navy so it looks printed on the bar */
-  mix-blend-mode:screen;
-  box-shadow:0 0 24px rgba(212,175,55,0.35);
   display:block;
+  /* no blend trick anymore – we just let your PNG sit inside this navy+gold badge */
+  box-shadow:0 0 24px rgba(212,175,55,0.35);
 }
 
-/* right-side text cluster */
+/* text block to right */
 .brand-textgroup {
   display:flex;
   flex-direction:column;
   line-height:1.2;
+  margin-top:2px;
 }
 
-/* LEGACY / CREATORS block */
+/* main brand line: LEGACY CREATORS */
 .brand-name {
-  font-family:"Ovo", serif;
   color:var(--gold);
+  text-shadow:0 0 12px rgba(212,175,55,0.5);
+  font-family:"Ovo", serif;
   text-transform:uppercase;
-  text-shadow:0 0 10px rgba(212,175,55,0.45);
-  line-height:1.2;
-  font-size:18px;
-  display:flex;
-  flex-direction:column;
+  line-height:1.1;
 }
 
-.brand-line1 {
-  display:block;
+.brand-line-main {
+  display:flex;
+  flex-wrap:wrap;
+  column-gap:10px;
+  row-gap:0;
+  align-items:flex-end;
+  font-size:22px;          /* BIG on purpose */
+  font-weight:600;
   letter-spacing:0.08em;
 }
 
-.brand-line2 {
+/* underline + tagline row under the name */
+.brand-accent-row {
   display:flex;
-  flex-wrap:nowrap;
+  flex-wrap:wrap;
   align-items:flex-start;
-  gap:10px;
+  gap:12px;
+  margin-top:10px;
   line-height:1.2;
-  position:relative;
 }
 
+/* short gold line */
 .brand-underline {
   display:inline-block;
+  align-self:center;
+  width:44px;
   height:2px;
   background:var(--gold);
   box-shadow:0 0 10px rgba(212,175,55,0.6);
-  align-self:center;
-  width:42px;
-  margin-top:0.6em;
 }
 
-.brand-wordline {
-  display:inline-block;
-  font-family:"Ovo", serif;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:0.18em;
-  color:var(--gold);
-  text-shadow:0 0 8px rgba(212,175,55,0.45);
-  font-size:18px;
-  line-height:1.2;
-}
-
-/* tagline under Legacy Creators */
-.brand-tagline {
-  margin-top:10px;
+/* tagline text */
+.brand-tag-small {
   color:var(--gold);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   font-size:11px;
@@ -182,7 +180,7 @@ header.site-header {
   text-shadow:0 0 10px rgba(212,175,55,0.6);
 }
 
-/* mobile header layout */
+/* mobile layout */
 @media (max-width:700px){
   header.site-header {
     flex-direction:column;
@@ -191,7 +189,7 @@ header.site-header {
   .nav-links {
     border-top:1px solid rgba(255,255,255,0.1);
     padding-top:10px;
-    margin-top:14px;
+    margin-top:16px;
     gap:16px;
   }
 }
@@ -556,6 +554,16 @@ footer.site-footer a:hover {
   color:var(--gold);
   text-shadow:0 0 10px rgba(212,175,55,0.6);
 }
+
+.footer-disclaimer {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+  font-size: 13px;
+}
+
 
 /* override disclaimer color in footer */
 footer .disclaimer {
