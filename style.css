@@ -38,7 +38,7 @@ body {
   padding:20px;
 }
 
-/* ---------- LEGACY CREATORS HEADER (REV5) ---------- */
+/* ---------- LEGACY CREATORS HEADER (REV6) ---------- */
 header.site-header {
   display:flex;
   align-items:flex-start;
@@ -106,7 +106,7 @@ header.site-header {
   text-shadow:0 0 12px rgba(212,175,55,0.5);
   font-family:"Ovo", serif;
   text-transform:uppercase;
-  line-height:2.1;
+  line-height:1.5;
 }
 
 .brand-line-main {
@@ -199,7 +199,7 @@ header.site-header {
   gap: 26px;
   font-size: 20px;
   font-weight: 500;
-  margin-top: 4px;         /* fine-tuned for perfect center alignment */
+  margin-top: 16px;         /* fine-tuned for perfect center alignment */
   position: relative;
   top: 2px;                /* nudges the whole nav group downward slightly */
 }
